@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="story"
+            type="com.aldi.storyappdicoding.data.model.stories.Story" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.main.detailstory.DetailStoryFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_detail_photo"
+                android:layout_width="match_parent"
+                android:layout_height="355dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:scaleType="fitCenter"
+                android:transitionName="@{@string/storyImage(String.valueOf(story.id))}"
+                app:loadImage="@{story.photoUrl}"
+                tools:src="@tools:sample/avatars"
+                android:contentDescription="@string/image_detail"/>
+
+            <TextView
+                android:id="@+id/tv_detail_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="24dp"
+                android:text="@{story.name}"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:transitionName="@{@string/storyName(String.valueOf(story.id))}"
+                tools:text="Name" />
+
+            <TextView
+                android:id="@+id/tv_detail_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:gravity="center_horizontal"
+                android:text="@{story.description}"
+                android:transitionName="@{@string/storyDescription(String.valueOf(story.id))}"
+                tools:text="Description" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
